@@ -31,12 +31,10 @@ export class FPActorSheet extends ActorSheet {
     getData() {
         const data = deepClone(this.actor.data);
 
-         
          data.config = CONFIG.fiveparsecs; 
          let ownedItems = this.actor.items;
          data.actor = this.actor; 
          
-
          if(this.actor.type === "character" || this.actor.type === "enemy") {
           
             let gl = new Array();
@@ -54,6 +52,8 @@ export class FPActorSheet extends ActorSheet {
             data.worlds = ownedItems.filter(item => item.type === "world");
             data.battles = ownedItems.filter(item => item.type === "battle");
             data.jobs = ownedItems.filter(item => item.type === "patron_job");
+            this.actor.data.data.turn_id ? data.turn_id = this.actor.data.data.turn_id : data.turn_id=1;
+             
          }
 
          data.auto = false;
@@ -274,6 +274,11 @@ export class FPActorSheet extends ActorSheet {
         event.preventDefault();
         let element = event.currentTarget;
         let itemId = element.closest(".item").dataset.itemId;
+        //DLA Merde
+        console.log(itemId);
+        let itemIds = new Array(1);
+        itemIds.push(itemId);
+        
 
         let d = new Dialog({
           title: "Delete This Item?",
@@ -282,7 +287,10 @@ export class FPActorSheet extends ActorSheet {
            one: {
             icon: '<i class="fas fa-check"></i>',
             label: "Yes",
-            callback: () => { this.actor.deleteOwnedItem(itemId); }
+            callback: () => { 
+                let item = this.actor.items.get(itemId);
+                item.delete();
+             }
            },
            two: {
             icon: '<i class="fas fa-times"></i>',
