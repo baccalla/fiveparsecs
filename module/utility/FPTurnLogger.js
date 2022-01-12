@@ -2,7 +2,6 @@ export class FPTurnLogger {
 
     static async logCampaignTurn(crew, blank) {
 
-        
         const data = crew.data.data.campaign_turn;
         console.warn("Logger data: ", data);
         console.warn("Logger just one data: ", crew.data.campaign_turn);
@@ -60,7 +59,7 @@ export class FPTurnLogger {
                                                 });
         
         let loggedEntry = {
-            name: crew.name + " Campaign Log: " + world.name,
+            name: "#" + crew.data.turn_id + ": " + crew.name + " Campaign Log: " + world.name,
             content: journalEntryHtml,
         }
         //const entry = new JournalEntryData(loggedEntry);

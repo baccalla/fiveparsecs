@@ -46,7 +46,8 @@
                 "clock":"Clock",
                 "questrumors":"Quest Rumors"
             },
-            "stash":"Stash"
+            "stash":"Stash",
+            "crewlog":"Crew Log"
         },
         "ship":{
             "name":"Ship Name",
@@ -111,6 +112,8 @@
         },
         "campaign_turn":{
             "entity": "Campaign Turn",
+            "turn" : "Turn",
+            "objectives" : "Campaign Objectives",
             "logturn": "Log this Turn",
             "reset_turn": "Reset Turn",
             "step": "Step",

@@ -305,7 +305,6 @@ export class FPActor extends Actor {
                 console.warn("jobList: ", jobList);
                 battList.forEach(b => {
                     delIds.push(b.data._id);
-    
                 });
                 jobList.forEach(j => {
                     delIds.push(j.data._id);
@@ -314,10 +313,9 @@ export class FPActor extends Actor {
                 this.deleteEmbeddedDocuments("Item", delIds);
                 this.update({"data.campaign_turn":blank});
                 this.update({"data.campaign_turn.crew_tasks.ct_final_result":""});
+                this.update({"data.turn_id":++this.data.data.turn_id});
             });
         } else {
-
-            
 
             let battList = this.items.filter(i => i.type === "battle");
             let jobList = this.items.filter(i => i.type === "patron_job");
@@ -342,7 +340,7 @@ export class FPActor extends Actor {
 
     _getBlankCt() {
         const blank = {
-                turn_id:"",
+                //turn_id:"",
                 flee:false,
                 flee_outcome:"",
                 travel:{
