@@ -2,8 +2,6 @@
     <header class="fp sheethead">
     </header>
 
-     
-
     <section class="sheetbody">
         
         <div class="fp flexrow"> {{!--main row - image, and crewsheet body--}}
@@ -36,11 +34,10 @@
             </div>
             <div class="fp flexcol" style="max-width:150px; background:#7dc8e6; margin-left:6px;"> {{!--dice and image column--}}
                 <div class="fp flex-item" style="text-align:center;">
-                    <span class="fp sheet-label labels" style="color:white; font-size:1.35em;">CREW LOG</span>
+                    <span class="fp sheet-label labels" style="color:white; font-size:1.35em;">{{localize "FP.crew.crewlog"}}</span>
                 </div>
                 <div class="fp flex-item" style="flex-grow:0; text-align:center"> {{!--image flex column--}}
                         <img class="profile-img" style=" border:1px solid #44b9de; margin-right:auto; margin-left:auto; min-width:96px !important; min-height:96px !imporant" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="96" width="96"/>
-                    
                 </div>
                 
             </div> {{!--end dice and image column--}}
@@ -58,12 +55,23 @@
                          <span data-field="data.notes" class="inline-edit hw val-box"  contenteditable>{{data.notes}}</span>
                         <!--input type="text" class="fp text-input" name="data.data.notes" value="{{data.data.notes}}" data-dtype="String"/-->
                     </div>
+
+                    <!--iA REVOIR/-->
                      <div class="fp flex-item" style="max-width:15%; text-align:center">
-                        <span class="fp sheet-label-white">{{localize "FP.crew.stat.story_points"}}</span><br/>
-                        <span data-field="data.sp" class="inline-edit hw val-box"  contenteditable>{{data.sp}}</span>
+                        <span class="fp sheet-label-white">{{localize "FP.campaign_turn.turn"}}</span><br/>
+                        <span data-field="data.turn_id" class="inline-edit hw val-box"  contenteditable>{{data.turn_id}}</span>
                         <!--input type="text" class="fp value-input" name="data.data.sp" value="{{data.data.sp}}" data-dtype="Number"/-->
                     </div>
                 </div>
+
+                <!--iA REVOIR/-->
+                <div class="fp flexrow" style="background:#7dc8e6;">
+                    <div class="fp flex-item" style="max-width:100%">
+                        <span class="fp sheet-label-white">{{localize "FP.campaign_turn.objectives"}}</span><br/>
+                        <span data-field="data.campaign.objectives" class="inline-edit hw val-box" contenteditable><strong>{{data.campaign.objectives}}</strong> </span>
+                        <!--input type="text" class="fp text-input hw" name="name" value="{{actor.name}}" data-dtype="String"/-->
+                    </div>
+                </div>                
 
                 <div class="fp flexrow" style="background:#7dc8e6;">
                     <div class="fp flex-item">
@@ -75,6 +83,11 @@
                         <span class="fp sheet-label-white">{{localize "FP.crew.stat.credits"}}</span><br/>
                         <span data-field="data.credits" class="inline-edit hw val-box"  contenteditable>{{data.credits}}</span>
                         <!--input type="text" class="fp value-input" name="data.data.credits" value="{{data.data.credits}}" data-dtype="Number"/-->
+                    </div>
+                    <div class="fp flex-item" style="max-width:10%; text-align:center">
+                        <span class="fp sheet-label-white">{{localize "FP.crew.stat.story_points"}}</span><br/>
+                        <span data-field="data.sp" class="inline-edit hw val-box"  contenteditable>{{data.sp}}</span>
+                        <!--input type="text" class="fp value-input" name="data.data.sp" value="{{data.data.sp}}" data-dtype="Number"/-->
                     </div>
                      <div class="fp flex-item" style="max-width:10%; text-align:center">
                         <span class="fp sheet-label-white">{{localize "FP.crew.stat.patrons"}}</span><br/>
