@@ -65,7 +65,7 @@ export class FPActor extends Actor {
      
         new Dialog({
             title:game.i18n.localize("FP.campaign_turn.travel.event"),
-            content: "<table><tr><th>Travel Event</th><td><input type='text' id='tev' class='fp text-input' style='width:100%' data-dtype='String'/></td></tr></table>",
+            content: "<table><tr><th>"+game.i18n.localize("FP.campaign_turn.travel.event")+"</th><td><input type='text' id='tev' class='fp text-input' style='width:100%' data-dtype='String'/></td></tr></table>",
             buttons: {
                 roll: {
                 icon: '<i class="fas fa-check"></i>',
@@ -90,9 +90,10 @@ export class FPActor extends Actor {
 
     handleArrival() {
         let follow = new Roll("1d6").evaluate({async:false}).result;
-        console.warn("Arrival Follow Check result: ", follow);
+        console.warn(game.i18n.localize("FP.campaign_turn.arrival.check"), follow);
         if (follow > 5) {
             this.data.data.campaign_turn.arrival.followed = true;
+            ui.notifications.warn(game.i18n.localize("FP.campaign_turn.arrival.followed"));
         }
         this.createWorld();
        
@@ -113,7 +114,7 @@ export class FPActor extends Actor {
 
         console.warn("totalPmts, bankBal, currDebt, currHull, maxHull: ", totalPmts, bankBal, currDebt, currHull, maxHull);
         if (totalPmts > bankBal) {
-             return ui.notifications.warn("You don't have sufficient credits to cover these expenses");
+             return ui.notifications.warn(game.i18n.localize("FP.campaign_turn.upkeep.warn_balance"));
         } else {
             // Ship Debt
             bankBal -= debtPmt;

@@ -122,7 +122,9 @@
                 "entity":"Arrival",
                 "random":"Generate Random World",
                 "custom":"Create World",
-                "known":"Select a Known World"
+                "check":"Arrival Follow Check result: ",
+                "known":"Select a Known World",
+                "followed":"Your Rivals have decided to follow and track you"
             },
             "flee":{
                 "entity":"Flee Invasion",
@@ -151,8 +153,8 @@
                 "upkp_debt_paid":"You paid {paid} Credits toward your ship. You still owe {owed} credits.",
                 "upkp_crew_paid":"You paid {paychecks} Credits to your crew for upkeep.",
                 "upkp_rep_paid":"You paid {rep} Credits toward ship repairs.",
-                "upkp_med_paid":"You paid {copay} Credits for medical care for your crew."
-                
+                "upkp_med_paid":"You paid {copay} Credits for medical care for your crew.",
+                "warn_balance":"You don't have sufficient credits to cover these expenses"
             },
             "crew_tasks":{
                 "entity":"Crew Tasks",
